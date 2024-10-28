@@ -1,0 +1,51 @@
+PCA decrease accuracy of perceptron for a certain component then  , PCA has almost no effect on RandomForest 
+histo + hog is best combination for perceptron
+for random forest
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [10, 20, 30],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+# {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 300} :30
+# {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 10, 'n_estimators': 300} : 30 smote pca
+# {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 300} : 0.34563492063492063 smote 
+# Best Combination of Features: ('HOG', 'HISTO', 'LBP')
+# Best Accuracy: 0.3563
+# Best Hyperparameters: {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 300}
+for perceptron 
+best-(max_iter=1000, tol=1e-3) : 24
+param_grid = {
+    'max_iter': [1000, 2000, 3000],
+    'tol': [1e-3, 1e-4]
+}
+Best Combination of Features: ('HOG', 'HISTO')
+Best Accuracy: 0.2401
+Best Hyperparameters: {'max_iter': 1000, 'tol': 0.0001}
+
+
+
+
+# Model: Random Forest with Hyperparameter Tuning (Grid Search)
+# print(f"Best Hyperparameters: {best_params}")
+# Best Combination of Features: ('HOG', 'HISTO', 'LBP')
+# Best Accuracy: 0.3563
+# Best Hyperparameters: {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 300}
+# {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 300} :30
+# {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 10, 'n_estimators': 300} : 30 smote pca
+# {'max_depth': 20, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 300} : 0.34563492063492063 smote 
+
+
+the accuracy of perceptron increased while increasing the n components from 50 to 300
+Applying PCA with 50 components
+Perceptron Model Accuracy with 50 PCA components: 0.1357142857142857
+Applying PCA with 100 components
+Perceptron Model Accuracy with 100 PCA components: 0.15674603174603174
+Applying PCA with 150 components
+Perceptron Model Accuracy with 150 PCA components: 0.18968253968253967
+Applying PCA with 200 components
+Perceptron Model Accuracy with 200 PCA components: 0.19563492063492063
+Applying PCA with 250 components
+Perceptron Model Accuracy with 250 PCA components: 0.19642857142857142
+Applying PCA with 300 components
+Perceptron Model Accuracy with 300 PCA components: 0.2123015873015873
